@@ -1,0 +1,98 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 391px;
+}
+
+.u-section-1 .u-search-1 {
+  height: auto;
+  width: 200px;
+  min-height: 38px;
+  margin: 8px auto 0 269px;
+}
+
+.u-section-1 .u-btn-1 {
+  margin: -45px 487px 60px auto;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-btn-1 {
+    margin-right: 287px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 390px;
+  }
+
+  .u-section-1 .u-search-1 {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-top: -42px;
+    margin-right: auto;
+    margin-left: 249px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-btn-1 {
+    margin-top: -38px;
+    margin-right: 185px;
+    margin-left: auto;
+    padding: 6px 30px 7px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-search-1 {
+    margin-top: 1px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-top: -39px;
+    margin-right: 15px;
+  }
+}
+
+.job-listing {
+  /* Add margins and padding to create space between job listings */
+  margin: 50px;
+  padding: 16px;
+  position: relative;
+  top: -350px; 
+  background-color: whitesmoke;
+  }
+  .apply-button {
+    margin-top: 50px;
+  }
+  @media (max-width: 575px) {
+    .job-listing{
+      margin-top: 1px;
+      margin-left: 0;
+      position: relative;
+      top: -350px; 
+      background-color: whitesmoke;
+    }
+  }
+  @media (max-width: 575px) {
+    .apply-button{
+      margin-top: 1px;
+      margin-left: 0;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .job-listing {
+      margin: 20px; /* Reduce the margin for smaller screens */
+      padding: 8px;
+      position: relative;
+      top: -350px; 
+      background-color: whitesmoke; /* Reduce the padding for smaller screens */
+    }
+    .apply-button {
+      margin-top: 20px; 
+  }
+}
+  

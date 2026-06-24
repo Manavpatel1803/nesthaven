@@ -1,0 +1,9 @@
+
+
+services:
+  - type: web
+    name: studentjourneymentor
+    buildCommand: "npm install --legacy-peer-deps && npm run build"
+    startCommand: "npm run serve"
+     NODE_VERSION: "18.x"
+     staticPublishPath: /dist
