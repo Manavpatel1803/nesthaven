@@ -25,3 +25,4 @@ ca.pem
 ca1.pem
 dist/
 test
+.env.example
