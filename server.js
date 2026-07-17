@@ -40,18 +40,26 @@ const pool = mysql.createPool(dbConfig);
 
 app.use(express.json({ limit: '10mb' }));
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'dist')));
 
 // ======================
 // ROOT ROUTES
 // ======================
 
 app.get('/', (req, res) => {
-    res.send(`
-        <h1>Welcome to the Job Listings and Rental API</h1>
-        <p>Use /api/jobs to fetch job listings</p>
-        <p>Use /api/rentals to fetch rental properties</p>
-    `);
+    res.json({
+        service: 'NestHaven API',
+        status: 'ok',
+        endpoints: [
+            'GET  /api/rentals?title=',
+            'GET  /api/rentals/offerid?offerid=',
+            'GET  /api/rentals/cities',
+            'POST /api/calculate-pricing',
+            'POST /api/chat/property',
+            'POST /api/agent/visa',
+            'GET  /api/direct/listings',
+            'POST /api/direct/listings',
+        ],
+    });
 });
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
@@ -777,13 +785,19 @@ app.post('/api/calculate-pricing', async (req, res) => {
 });
 
 // ======================
-// SPA CATCH ALL
+// NESTHAVEN AI ROUTES
+// (property chatbot + UK student-life agent)
 // ======================
 
-app.get('*', (req, res) => {
-    res.sendFile(
-        path.join(__dirname, 'dist', 'index.html')
-    );
+require('./nesthaven-ai')(app, pool, axios);
+require('./nesthaven-direct')(app, pool);
+
+// ======================
+// 404 (API only — frontend is the separate Angular app)
+// ======================
+
+app.use((req, res) => {
+    res.status(404).json({ message: 'Not found', path: req.originalUrl });
 });
 
 // ======================
